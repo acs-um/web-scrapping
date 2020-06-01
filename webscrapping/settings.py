@@ -77,13 +77,9 @@ WSGI_APPLICATION = 'webscrapping.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dolarscrap',
-        'USER': 'comidar',
-        'PASSWORD': 'Campana12',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'webscraping.db',
+    }
 }
 
 

@@ -245,5 +245,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+webscraping.db
+.idea/
 # End of https://www.gitignore.io/api/django,pycharm,windows,virtualenv
 
