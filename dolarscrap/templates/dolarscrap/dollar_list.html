@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparación del dólar</title>
+</head>
+<body>
+<h1>Valores tomados de distinos sitios</h1>
+<table>
+    <tr>
+        <th>Día</th>
+        <th>Tipo</th>
+        <th>Origen</th>
+        <th>Compra</th>
+        <th>Venta</th>
+        <th>Promedio</th>
+    </tr>
+    {% for dollar in dollars %}
+    <tr>
+        <td>{{ dollar.issue_date|date:"d-m-Y" }}</td>
+        <td>{{ dollar.dollar_type.name }}</td>
+        <td>{{ dollar.origin }}</td>
+        <td>$ {{ dollar.buy_price }}</td>
+        <td>$ {{ dollar.sell_price }}</td>
+        <td>$ {{ dollar.average }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

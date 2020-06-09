@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 
 class Type(models.Model):
@@ -26,3 +27,9 @@ class Dollar(models.Model):
 
     def __str__(self):
         return f"Dólar {self.origin}: {self.buy_price:.3f} - {self.sell_price:.3f}"
+
+    def average(self):
+        return (self.buy_price + self.sell_price) / 2
+
+    def is_today(self):
+        return self.issue_date.date() == now().date()
