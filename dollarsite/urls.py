@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-"""webscrapping URL Configuration
+"""dollarsite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -18,15 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('', include('dolarscrap.urls')),
+    path('', include('webscrapping.urls')),
     path('admin/', admin.site.urls),
-=======
-from django.urls import path, include
-from webscrapping.views import home_view, signup_view
-
-urlpatterns = [
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('signup/', signup_view, name="signup"),
-    path('', home_view, name="home"),
->>>>>>> Stashed changes
 ]

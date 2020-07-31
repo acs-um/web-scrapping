@@ -1,0 +1,24 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="container jumbotron bg-primary align middle">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="fieldWrapper">
+                {{ form.username.errors }}
+                <label for="{{ form.username.id_for_label }}">Nombre de Usuario:</label>
+                {{ form.username }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.password.errors }}
+                <label for="{{ form.password.id_for_label }}">Contraseña:</label>
+                {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-dark">Login</button>
+        </form>
+    </div>
+{% endblock %}
