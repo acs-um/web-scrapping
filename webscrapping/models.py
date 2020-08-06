@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.timezone import now
 
 
 class Type(models.Model):
@@ -21,6 +20,7 @@ class Dollar(models.Model):
     origin = models.CharField(verbose_name="origen del precio", max_length=200)
 
     class Meta:
+        ordering = ["issue_date"]
         verbose_name = "dólar"
         verbose_name_plural = "dólares"
         unique_together = ('issue_date', 'origin')
@@ -28,8 +28,15 @@ class Dollar(models.Model):
     def __str__(self):
         return f"Dólar {self.origin}: {self.buy_price:.3f} - {self.sell_price:.3f}"
 
-    def average(self):
-        return (self.buy_price + self.sell_price) / 2
 
-    def is_today(self):
-        return self.issue_date.date() == now().date()
+class Request(models.Model):
+    value = models.DecimalField(verbose_name="valor", decimal_places=2, max_digits=30)
+    mail = models.EmailField(verbose_name="mail")
+    notified = models.BooleanField(verbose_name="notificado", default=False)
+
+    class Meta:
+        verbose_name = "petición"
+        verbose_name_plural = "peticiones"
+
+    def __str__(self):
+        return f"Peticion {self.value}: {self.mail}"
