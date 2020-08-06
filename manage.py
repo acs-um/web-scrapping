@@ -5,11 +5,7 @@ import sys
 
 
 def main():
-<<<<<<< Updated upstream
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'webscrapping.settings')
-=======
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dollarsite.settings')
->>>>>>> Stashed changes
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

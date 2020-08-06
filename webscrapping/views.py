@@ -44,7 +44,8 @@ def home_view(request):
 
 
 def signup_view(request):
-    form = SignUpForm(request.POST)
+    form = SignUpForm(data=request.POST)
+
     if form.is_valid():
         form.save()
         username = form.cleaned_data.get('username')
@@ -53,5 +54,7 @@ def signup_view(request):
         login(request, user)
         return redirect('home')
     else:
-        form = SignUpForm()
+        form = SignUpForm(data=request.POST)
+        print(form.errors)
+
     return render(request, 'signup.html', {'form': form})
